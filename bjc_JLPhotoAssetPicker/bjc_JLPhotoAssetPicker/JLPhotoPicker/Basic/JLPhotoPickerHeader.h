@@ -6,7 +6,6 @@
 //  Copyright © 2019 L. All rights reserved.
 //
 
-#ifndef JLPhotoPickerHeader_h
 #define JLPhotoPickerHeader_h
 #import "JLPhotoToolsSingle.h"
 #import "JLPHPickerConfig.h"

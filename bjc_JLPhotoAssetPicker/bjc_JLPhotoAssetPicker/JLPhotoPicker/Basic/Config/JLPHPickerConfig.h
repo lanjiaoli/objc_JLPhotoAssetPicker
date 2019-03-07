@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "JLPhotoPickerHeader.h"
 NS_ASSUME_NONNULL_BEGIN
 typedef  NS_ENUM(NSUInteger, JLPhImageConfigType){
     /**默认情况下 ,视频和图片模式*/
@@ -22,6 +22,10 @@ typedef  NS_ENUM(NSUInteger, JLPhImageConfigType){
 @property (nonatomic, strong) NSMutableArray *selectPhotoArray;
 /**选择中的最大数 默认是 9个*/
 @property (nonatomic, assign) NSInteger maxNum;
+//所有相册的集合
+@property (nonatomic, strong) NSMutableArray <JLPhotoModel*> * allAlbamlists;
+
+
 /**类型 */
 @property (nonatomic, assign) JLPhImageConfigType configType;
 

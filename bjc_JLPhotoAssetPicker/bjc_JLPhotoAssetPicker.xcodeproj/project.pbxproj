@@ -16,26 +16,6 @@
 		0BD1D25C222FEAE100E1EA5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D25B222FEAE100E1EA5F /* main.m */; };
 		0BD1D266222FEAE100E1EA5F /* bjc_JLPhotoAssetPickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D265222FEAE100E1EA5F /* bjc_JLPhotoAssetPickerTests.m */; };
 		0BD1D271222FEAE100E1EA5F /* bjc_JLPhotoAssetPickerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D270222FEAE100E1EA5F /* bjc_JLPhotoAssetPickerUITests.m */; };
-		0BD1D2B1222FEB0B00E1EA5F /* GTWPhotoListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D282222FEB0B00E1EA5F /* GTWPhotoListViewModel.m */; };
-		0BD1D2B2222FEB0B00E1EA5F /* GTWPhotoSelectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D285222FEB0B00E1EA5F /* GTWPhotoSelectViewModel.m */; };
-		0BD1D2B3222FEB0B00E1EA5F /* PhotoAndVideoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D289222FEB0B00E1EA5F /* PhotoAndVideoBrowserViewController.m */; };
-		0BD1D2B4222FEB0B00E1EA5F /* GTWPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D28B222FEB0B00E1EA5F /* GTWPhotoListViewController.m */; };
-		0BD1D2B5222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D28E222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.m */; };
-		0BD1D2B6222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BD1D28F222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.xib */; };
-		0BD1D2B7222FEB0B00E1EA5F /* GTWPhotoSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BD1D292222FEB0B00E1EA5F /* GTWPhotoSelectViewController.xib */; };
-		0BD1D2B8222FEB0B00E1EA5F /* GTWPhotoSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D294222FEB0B00E1EA5F /* GTWPhotoSelectViewController.m */; };
-		0BD1D2B9222FEB0B00E1EA5F /* GTWPhotoAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D297222FEB0B00E1EA5F /* GTWPhotoAssetModel.m */; };
-		0BD1D2BA222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D29A222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.m */; };
-		0BD1D2BB222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BD1D29B222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.xib */; };
-		0BD1D2BC222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D29E222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.m */; };
-		0BD1D2BD222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BD1D29F222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.xib */; };
-		0BD1D2BE222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BD1D2A3222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.xib */; };
-		0BD1D2BF222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2A4222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.m */; };
-		0BD1D2C0222FEB0B00E1EA5F /* GTWAliyunVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2A6222FEB0B00E1EA5F /* GTWAliyunVideoPlayer.m */; };
-		0BD1D2C1222FEB0B00E1EA5F /* GTAlbumTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2AA222FEB0B00E1EA5F /* GTAlbumTools.m */; };
-		0BD1D2C2222FEB0B00E1EA5F /* GTWImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2AB222FEB0B00E1EA5F /* GTWImagePickerController.m */; };
-		0BD1D2C3222FEB0B00E1EA5F /* UIImage+Luban_iOS_Extension_h.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2AE222FEB0B00E1EA5F /* UIImage+Luban_iOS_Extension_h.m */; };
-		0BD1D2C4222FEB0B00E1EA5F /* GTWImagePickerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2AF222FEB0B00E1EA5F /* GTWImagePickerConfiguration.m */; };
 		0BD1D2C8222FEBA000E1EA5F /* JLPhotoToolsSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2C7222FEBA000E1EA5F /* JLPhotoToolsSingle.m */; };
 		0BD1D2CD222FEC3100E1EA5F /* JLPHPickerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2CC222FEC3100E1EA5F /* JLPHPickerConfig.m */; };
 		0BD1D2D1222FEE6B00E1EA5F /* JLPHPickerNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2D0222FEE6B00E1EA5F /* JLPHPickerNavController.m */; };
@@ -81,42 +61,6 @@
 		0BD1D26C222FEAE100E1EA5F /* bjc_JLPhotoAssetPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bjc_JLPhotoAssetPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BD1D270222FEAE100E1EA5F /* bjc_JLPhotoAssetPickerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bjc_JLPhotoAssetPickerUITests.m; sourceTree = "<group>"; };
 		0BD1D272222FEAE100E1EA5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0BD1D282222FEB0B00E1EA5F /* GTWPhotoListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWPhotoListViewModel.m; sourceTree = "<group>"; };
-		0BD1D283222FEB0B00E1EA5F /* GTWPhotoListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPhotoListViewModel.h; sourceTree = "<group>"; };
-		0BD1D285222FEB0B00E1EA5F /* GTWPhotoSelectViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWPhotoSelectViewModel.m; sourceTree = "<group>"; };
-		0BD1D286222FEB0B00E1EA5F /* GTWPhotoSelectViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPhotoSelectViewModel.h; sourceTree = "<group>"; };
-		0BD1D289222FEB0B00E1EA5F /* PhotoAndVideoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAndVideoBrowserViewController.m; sourceTree = "<group>"; };
-		0BD1D28A222FEB0B00E1EA5F /* GTWPhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPhotoListViewController.h; sourceTree = "<group>"; };
-		0BD1D28B222FEB0B00E1EA5F /* GTWPhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWPhotoListViewController.m; sourceTree = "<group>"; };
-		0BD1D28C222FEB0B00E1EA5F /* PhotoAndVideoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAndVideoBrowserViewController.h; sourceTree = "<group>"; };
-		0BD1D28E222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWPhotoPreviewViewController.m; sourceTree = "<group>"; };
-		0BD1D28F222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTWPhotoPreviewViewController.xib; sourceTree = "<group>"; };
-		0BD1D290222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPhotoPreviewViewController.h; sourceTree = "<group>"; };
-		0BD1D292222FEB0B00E1EA5F /* GTWPhotoSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTWPhotoSelectViewController.xib; sourceTree = "<group>"; };
-		0BD1D293222FEB0B00E1EA5F /* GTWPhotoSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPhotoSelectViewController.h; sourceTree = "<group>"; };
-		0BD1D294222FEB0B00E1EA5F /* GTWPhotoSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWPhotoSelectViewController.m; sourceTree = "<group>"; };
-		0BD1D296222FEB0B00E1EA5F /* GTWPhotoAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPhotoAssetModel.h; sourceTree = "<group>"; };
-		0BD1D297222FEB0B00E1EA5F /* GTWPhotoAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWPhotoAssetModel.m; sourceTree = "<group>"; };
-		0BD1D29A222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWPhotoListTableViewCell.m; sourceTree = "<group>"; };
-		0BD1D29B222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTWPhotoListTableViewCell.xib; sourceTree = "<group>"; };
-		0BD1D29C222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPhotoListTableViewCell.h; sourceTree = "<group>"; };
-		0BD1D29E222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWPreviewCollectionViewCell.m; sourceTree = "<group>"; };
-		0BD1D29F222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTWPreviewCollectionViewCell.xib; sourceTree = "<group>"; };
-		0BD1D2A0222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPreviewCollectionViewCell.h; sourceTree = "<group>"; };
-		0BD1D2A2222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPhotoSelectCollectionViewCell.h; sourceTree = "<group>"; };
-		0BD1D2A3222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTWPhotoSelectCollectionViewCell.xib; sourceTree = "<group>"; };
-		0BD1D2A4222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWPhotoSelectCollectionViewCell.m; sourceTree = "<group>"; };
-		0BD1D2A6222FEB0B00E1EA5F /* GTWAliyunVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWAliyunVideoPlayer.m; sourceTree = "<group>"; };
-		0BD1D2A7222FEB0B00E1EA5F /* GTWImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWImagePickerController.h; sourceTree = "<group>"; };
-		0BD1D2A8222FEB0B00E1EA5F /* UIImage+Luban_iOS_Extension_h.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Luban_iOS_Extension_h.h"; sourceTree = "<group>"; };
-		0BD1D2A9222FEB0B00E1EA5F /* GTWImagePickerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWImagePickerConfiguration.h; sourceTree = "<group>"; };
-		0BD1D2AA222FEB0B00E1EA5F /* GTAlbumTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTAlbumTools.m; sourceTree = "<group>"; };
-		0BD1D2AB222FEB0B00E1EA5F /* GTWImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWImagePickerController.m; sourceTree = "<group>"; };
-		0BD1D2AC222FEB0B00E1EA5F /* GTWPhotoKitHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWPhotoKitHeader.h; sourceTree = "<group>"; };
-		0BD1D2AD222FEB0B00E1EA5F /* GTWAliyunVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWAliyunVideoPlayer.h; sourceTree = "<group>"; };
-		0BD1D2AE222FEB0B00E1EA5F /* UIImage+Luban_iOS_Extension_h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Luban_iOS_Extension_h.m"; sourceTree = "<group>"; };
-		0BD1D2AF222FEB0B00E1EA5F /* GTWImagePickerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWImagePickerConfiguration.m; sourceTree = "<group>"; };
-		0BD1D2B0222FEB0B00E1EA5F /* GTAlbumTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTAlbumTools.h; sourceTree = "<group>"; };
 		0BD1D2C6222FEBA000E1EA5F /* JLPhotoToolsSingle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPhotoToolsSingle.h; sourceTree = "<group>"; };
 		0BD1D2C7222FEBA000E1EA5F /* JLPhotoToolsSingle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLPhotoToolsSingle.m; sourceTree = "<group>"; };
 		0BD1D2C9222FEBBF00E1EA5F /* JLPhotoPickerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPhotoPickerHeader.h; sourceTree = "<group>"; };
@@ -184,7 +128,6 @@
 		0BD1D248222FEADF00E1EA5F /* bjc_JLPhotoAssetPicker */ = {
 			isa = PBXGroup;
 			children = (
-				0BD1D27F222FEB0B00E1EA5F /* Photo */,
 				0BD1D27E222FEAEA00E1EA5F /* JLPhotoPicker */,
 				0BD1D249222FEADF00E1EA5F /* AppDelegate.h */,
 				0BD1D24A222FEADF00E1EA5F /* AppDelegate.m */,
@@ -226,154 +169,6 @@
 				0BD1D2C5222FEB5B00E1EA5F /* Basic */,
 			);
 			path = JLPhotoPicker;
-			sourceTree = "<group>";
-		};
-		0BD1D27F222FEB0B00E1EA5F /* Photo */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D280222FEB0B00E1EA5F /* ViewModel */,
-				0BD1D287222FEB0B00E1EA5F /* Controller */,
-				0BD1D295222FEB0B00E1EA5F /* Model */,
-				0BD1D298222FEB0B00E1EA5F /* View */,
-				0BD1D2A5222FEB0B00E1EA5F /* Base */,
-			);
-			name = Photo;
-			path = ../../../gtw/GTW/GTW_Revision/Base/Photo;
-			sourceTree = "<group>";
-		};
-		0BD1D280222FEB0B00E1EA5F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D281222FEB0B00E1EA5F /* PhotoList */,
-				0BD1D284222FEB0B00E1EA5F /* PhotoSelect */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		0BD1D281222FEB0B00E1EA5F /* PhotoList */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D282222FEB0B00E1EA5F /* GTWPhotoListViewModel.m */,
-				0BD1D283222FEB0B00E1EA5F /* GTWPhotoListViewModel.h */,
-			);
-			path = PhotoList;
-			sourceTree = "<group>";
-		};
-		0BD1D284222FEB0B00E1EA5F /* PhotoSelect */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D285222FEB0B00E1EA5F /* GTWPhotoSelectViewModel.m */,
-				0BD1D286222FEB0B00E1EA5F /* GTWPhotoSelectViewModel.h */,
-			);
-			path = PhotoSelect;
-			sourceTree = "<group>";
-		};
-		0BD1D287222FEB0B00E1EA5F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D288222FEB0B00E1EA5F /* PhotoList */,
-				0BD1D28D222FEB0B00E1EA5F /* Preview */,
-				0BD1D291222FEB0B00E1EA5F /* PhotoSelect */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		0BD1D288222FEB0B00E1EA5F /* PhotoList */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D289222FEB0B00E1EA5F /* PhotoAndVideoBrowserViewController.m */,
-				0BD1D28A222FEB0B00E1EA5F /* GTWPhotoListViewController.h */,
-				0BD1D28B222FEB0B00E1EA5F /* GTWPhotoListViewController.m */,
-				0BD1D28C222FEB0B00E1EA5F /* PhotoAndVideoBrowserViewController.h */,
-			);
-			path = PhotoList;
-			sourceTree = "<group>";
-		};
-		0BD1D28D222FEB0B00E1EA5F /* Preview */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D28E222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.m */,
-				0BD1D28F222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.xib */,
-				0BD1D290222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.h */,
-			);
-			path = Preview;
-			sourceTree = "<group>";
-		};
-		0BD1D291222FEB0B00E1EA5F /* PhotoSelect */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D292222FEB0B00E1EA5F /* GTWPhotoSelectViewController.xib */,
-				0BD1D293222FEB0B00E1EA5F /* GTWPhotoSelectViewController.h */,
-				0BD1D294222FEB0B00E1EA5F /* GTWPhotoSelectViewController.m */,
-			);
-			path = PhotoSelect;
-			sourceTree = "<group>";
-		};
-		0BD1D295222FEB0B00E1EA5F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D296222FEB0B00E1EA5F /* GTWPhotoAssetModel.h */,
-				0BD1D297222FEB0B00E1EA5F /* GTWPhotoAssetModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		0BD1D298222FEB0B00E1EA5F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D299222FEB0B00E1EA5F /* PhotoList */,
-				0BD1D29D222FEB0B00E1EA5F /* PreviewCell */,
-				0BD1D2A1222FEB0B00E1EA5F /* PhotoSelect */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		0BD1D299222FEB0B00E1EA5F /* PhotoList */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D29A222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.m */,
-				0BD1D29B222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.xib */,
-				0BD1D29C222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.h */,
-			);
-			path = PhotoList;
-			sourceTree = "<group>";
-		};
-		0BD1D29D222FEB0B00E1EA5F /* PreviewCell */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D29E222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.m */,
-				0BD1D29F222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.xib */,
-				0BD1D2A0222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.h */,
-			);
-			path = PreviewCell;
-			sourceTree = "<group>";
-		};
-		0BD1D2A1222FEB0B00E1EA5F /* PhotoSelect */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D2A2222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.h */,
-				0BD1D2A3222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.xib */,
-				0BD1D2A4222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.m */,
-			);
-			path = PhotoSelect;
-			sourceTree = "<group>";
-		};
-		0BD1D2A5222FEB0B00E1EA5F /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				0BD1D2A6222FEB0B00E1EA5F /* GTWAliyunVideoPlayer.m */,
-				0BD1D2A7222FEB0B00E1EA5F /* GTWImagePickerController.h */,
-				0BD1D2A8222FEB0B00E1EA5F /* UIImage+Luban_iOS_Extension_h.h */,
-				0BD1D2A9222FEB0B00E1EA5F /* GTWImagePickerConfiguration.h */,
-				0BD1D2AA222FEB0B00E1EA5F /* GTAlbumTools.m */,
-				0BD1D2AB222FEB0B00E1EA5F /* GTWImagePickerController.m */,
-				0BD1D2AC222FEB0B00E1EA5F /* GTWPhotoKitHeader.h */,
-				0BD1D2AD222FEB0B00E1EA5F /* GTWAliyunVideoPlayer.h */,
-				0BD1D2AE222FEB0B00E1EA5F /* UIImage+Luban_iOS_Extension_h.m */,
-				0BD1D2AF222FEB0B00E1EA5F /* GTWImagePickerConfiguration.m */,
-				0BD1D2B0222FEB0B00E1EA5F /* GTAlbumTools.h */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		0BD1D2C5222FEB5B00E1EA5F /* Basic */ = {
@@ -574,14 +369,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BD1D2BE222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.xib in Resources */,
 				0BD1D259222FEAE100E1EA5F /* LaunchScreen.storyboard in Resources */,
-				0BD1D2B6222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.xib in Resources */,
-				0BD1D2B7222FEB0B00E1EA5F /* GTWPhotoSelectViewController.xib in Resources */,
 				0BD1D256222FEAE100E1EA5F /* Assets.xcassets in Resources */,
-				0BD1D2BD222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.xib in Resources */,
 				0BD1D251222FEADF00E1EA5F /* Main.storyboard in Resources */,
-				0BD1D2BB222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,30 +398,15 @@
 			files = (
 				0BD1D2DE222FEF5800E1EA5F /* JLPHListViewController.m in Sources */,
 				0BD1D24E222FEADF00E1EA5F /* ViewController.m in Sources */,
-				0BD1D2C2222FEB0B00E1EA5F /* GTWImagePickerController.m in Sources */,
 				0BD1D2C8222FEBA000E1EA5F /* JLPhotoToolsSingle.m in Sources */,
 				0BD1D24B222FEADF00E1EA5F /* AppDelegate.m in Sources */,
-				0BD1D2B3222FEB0B00E1EA5F /* PhotoAndVideoBrowserViewController.m in Sources */,
-				0BD1D2B2222FEB0B00E1EA5F /* GTWPhotoSelectViewModel.m in Sources */,
-				0BD1D2B9222FEB0B00E1EA5F /* GTWPhotoAssetModel.m in Sources */,
-				0BD1D2C4222FEB0B00E1EA5F /* GTWImagePickerConfiguration.m in Sources */,
-				0BD1D2C0222FEB0B00E1EA5F /* GTWAliyunVideoPlayer.m in Sources */,
-				0BD1D2C1222FEB0B00E1EA5F /* GTAlbumTools.m in Sources */,
-				0BD1D2BA222FEB0B00E1EA5F /* GTWPhotoListTableViewCell.m in Sources */,
 				0BD1D2E6222FF26800E1EA5F /* JLPhotoModel.m in Sources */,
 				0BD1D2D1222FEE6B00E1EA5F /* JLPHPickerNavController.m in Sources */,
-				0BD1D2BC222FEB0B00E1EA5F /* GTWPreviewCollectionViewCell.m in Sources */,
-				0BD1D2B5222FEB0B00E1EA5F /* GTWPhotoPreviewViewController.m in Sources */,
 				0BD1D2DA222FEF2D00E1EA5F /* JLPHPreviewController.m in Sources */,
 				0BD1D2D7222FEF0B00E1EA5F /* JLPHBasicViewController.m in Sources */,
 				0BD1D2CD222FEC3100E1EA5F /* JLPHPickerConfig.m in Sources */,
-				0BD1D2B1222FEB0B00E1EA5F /* GTWPhotoListViewModel.m in Sources */,
 				0BD1D25C222FEAE100E1EA5F /* main.m in Sources */,
 				0BD1D2E2222FEF7500E1EA5F /* JLPHSelectViewController.m in Sources */,
-				0BD1D2BF222FEB0B00E1EA5F /* GTWPhotoSelectCollectionViewCell.m in Sources */,
-				0BD1D2B4222FEB0B00E1EA5F /* GTWPhotoListViewController.m in Sources */,
-				0BD1D2C3222FEB0B00E1EA5F /* UIImage+Luban_iOS_Extension_h.m in Sources */,
-				0BD1D2B8222FEB0B00E1EA5F /* GTWPhotoSelectViewController.m in Sources */,
 				0BD1D254222FEADF00E1EA5F /* bjc_JLPhotoAssetPicker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

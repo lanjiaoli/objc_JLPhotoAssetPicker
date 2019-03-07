@@ -8,8 +8,9 @@
 
 #import "JLPHListViewController.h"
 #import "JLPhotoPickerHeader.h"
+#import "JLPHSelectViewController.h"
 
-@interface JLPHListViewController ()
+@interface JLPHListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @end
 
@@ -37,13 +38,14 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    JLPHSelectViewController *selecVC = [[JLPHSelectViewController alloc]init];
+    [self.navigationController pushViewController:selecVC animated:YES];
     
 }
 #pragma mark  - TabeleView Height
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 65.0;
+    return 44.0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section ==0) {
@@ -62,6 +64,8 @@
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:(UITableViewStylePlain)];
         _tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
     }
     return _tableView;
 }

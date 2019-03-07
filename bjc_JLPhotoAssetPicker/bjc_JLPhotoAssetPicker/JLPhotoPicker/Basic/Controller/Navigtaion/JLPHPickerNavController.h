@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JLPHPickerNavController : UINavigationController
+@property (nonatomic, strong) JLPHPickerConfig *config;
 /**
  初始化
  

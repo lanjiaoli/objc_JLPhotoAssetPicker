@@ -121,7 +121,7 @@
                         
                     }
                     
-                    completion(assetModel,@"");
+                    completion(assetModel,NULL);
                 }];
                 *stop = YES;
             }
@@ -260,14 +260,17 @@
  相册权限
  
  */
-- (BOOL)jl_fetchAlbumAuthorStatus{
-    PHAuthorizationStatus authorStatus = [PHPhotoLibrary authorizationStatus];
-    if (authorStatus == PHAuthorizationStatusAuthorized) {
-        return YES;
-    }else{
-        DLog(@"没有相册权限");
-        return false;
-    }
+- (void)jl_fetchAlbumAuthor:(void(^ _Nonnull)(BOOL status))commplete{
+    PHAuthorizationStatus authorStatus = [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if (authorStatus == PHAuthorizationStatusAuthorized) {
+            if (commplete) {
+                commplete(true);
+            }
+            DLog(@"没有相册权限");
+            commplete(false);
+        }
+    }];
+   
 }
 
 

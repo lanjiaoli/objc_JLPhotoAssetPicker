@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  相册权限
  
  */
-- (BOOL)jl_fetchAlbumAuthorStatus;
+- (void)jl_fetchAlbumAuthor:(void(^ _Nonnull)(BOOL status))commplete;
 
 
 /**
