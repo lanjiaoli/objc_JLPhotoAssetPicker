@@ -22,6 +22,7 @@ typedef  NS_ENUM(NSUInteger,JLPHAssetlMediaType){
 };
 NS_ASSUME_NONNULL_BEGIN
 
+//相册列表
 @interface JLPhotoModel : NSObject
 @property (nonatomic, copy) NSString *photoAssetName; //相册名称
 @property (nonatomic, assign) NSInteger count;        //相册图片数量
@@ -39,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIImage *image;
 @end
 
-///相册列表
+///相片列表
 NS_ASSUME_NONNULL_END
 @interface JLPHAlbumModel : NSObject
 @property (strong, nonatomic) PHAsset * _Nullable asset;

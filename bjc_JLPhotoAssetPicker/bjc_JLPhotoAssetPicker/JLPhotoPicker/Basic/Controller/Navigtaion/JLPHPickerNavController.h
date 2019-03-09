@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JLPhotoPickerHeader.h"
+#import "JLPHPickerHeader.h"
+@class JLPHPickerConfig;
 
 NS_ASSUME_NONNULL_BEGIN
 

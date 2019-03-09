@@ -10,6 +10,7 @@
 #import "JLPHListViewController.h"
 #import "JLPHSelectViewController.h"
 
+
 @interface JLPHPickerNavController ()
 
 @end
@@ -20,7 +21,7 @@
         configuration.selectPhotoArray.count == 0) {
         
     }
-    self.config = configuration;
+    [JLPhotoToolsSingle shareSingleton].config = configuration;
     JLPHListViewController * photoListVC = [[JLPHListViewController alloc] init];
 //    photoBrowserVC.hideVideos = YES;
     self = [super initWithRootViewController:photoListVC];
@@ -35,10 +36,7 @@
     [super viewDidLoad];
     
 }
-static void configParameters(JLPHPickerConfig *config){
-    config.selectPhotoArray = [[JLPhotoToolsSingle shareSingleton]jl_getAllPhotoAssetsResource];
-    
-}
+
 #pragma mark -
 #pragma mark - Action Mothed
 - (void)cancelAction:(id)sender{
@@ -61,9 +59,9 @@ static void configParameters(JLPHPickerConfig *config){
 //        }
 //    }];
     JLPHSelectViewController *photoSelectVC = [[JLPHSelectViewController alloc]init];
-    //    GTWPhotoAssetModel *assetModel = [GTAlbumTools shareSingleton].photoAssetModelList.firstObject;
-    //    photoSelectVC.navigationItem.title = assetModel.photoAssetName;
-    //    photoSelectVC.selectViewModel.albumPhotoList = assetModel.albumPhotoList;
+    JLPhotoModel * photoModel = [JLPhotoToolsSingle shareSingleton].config.allAlbamlists.firstObject;
+    photoSelectVC.navigationItem.title = photoModel.photoAssetName;
+    photoSelectVC.photoModel = photoModel;
     [self pushViewController:photoSelectVC animated:YES];
   
 }

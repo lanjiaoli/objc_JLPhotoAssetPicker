@@ -7,11 +7,12 @@
 //
 
 #import "JLPHBasicViewController.h"
+@class JLPhotoModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JLPHSelectViewController : JLPHBasicViewController
-
+@property (nonatomic , strong) JLPhotoModel * photoModel;
 @end
 
 NS_ASSUME_NONNULL_END

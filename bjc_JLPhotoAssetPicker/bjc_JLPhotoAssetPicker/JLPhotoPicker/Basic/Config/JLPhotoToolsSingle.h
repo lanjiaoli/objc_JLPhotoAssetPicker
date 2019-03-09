@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
-#import "JLPhotoPickerHeader.h"
+#import "JLPHPickerHeader.h"
 #import "JLPhotoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JLPhotoToolsSingle : NSObject
+@property (nonatomic, strong) JLPHPickerConfig *config;
+
+
 + (JLPhotoToolsSingle *_Nullable)shareSingleton;
+
+#pragma mark - Photos/Photos.h
 /**
  获取相册所有资源
  
@@ -30,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSArray *_Nullable)jl_getAllPhotosAssetInAblumCollection:(PHAssetCollection *_Nullable)assetCollection
                                                   ascending:(BOOL)ascending;
+
+
+- (void)jl_getAllPhotoCollection;
 /**
  根据PHAsset获取图片信息
  
@@ -77,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 获取原图
 /**
  获取原图
-  @return
+  @return PHImageRequestID
  */
 - (PHImageRequestID)jl_getOriginalPhotoDataWithAsset:(PHAsset *_Nullable)asset
                                        completion:(void (^_Nonnull)(NSData * _Nullable data,

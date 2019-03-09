@@ -63,7 +63,6 @@
 		0BD1D272222FEAE100E1EA5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BD1D2C6222FEBA000E1EA5F /* JLPhotoToolsSingle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPhotoToolsSingle.h; sourceTree = "<group>"; };
 		0BD1D2C7222FEBA000E1EA5F /* JLPhotoToolsSingle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLPhotoToolsSingle.m; sourceTree = "<group>"; };
-		0BD1D2C9222FEBBF00E1EA5F /* JLPhotoPickerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPhotoPickerHeader.h; sourceTree = "<group>"; };
 		0BD1D2CB222FEC3100E1EA5F /* JLPHPickerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPHPickerConfig.h; sourceTree = "<group>"; };
 		0BD1D2CC222FEC3100E1EA5F /* JLPHPickerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLPHPickerConfig.m; sourceTree = "<group>"; };
 		0BD1D2CF222FEE6B00E1EA5F /* JLPHPickerNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPHPickerNavController.h; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		0BD1D2E1222FEF7500E1EA5F /* JLPHSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLPHSelectViewController.m; sourceTree = "<group>"; };
 		0BD1D2E4222FF26800E1EA5F /* JLPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPhotoModel.h; sourceTree = "<group>"; };
 		0BD1D2E5222FF26800E1EA5F /* JLPhotoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLPhotoModel.m; sourceTree = "<group>"; };
+		0BD901B92232B89B0044D142 /* JLPHPickerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPHPickerHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,7 @@
 		0BD1D2C5222FEB5B00E1EA5F /* Basic */ = {
 			isa = PBXGroup;
 			children = (
-				0BD1D2C9222FEBBF00E1EA5F /* JLPhotoPickerHeader.h */,
+				0BD901B92232B89B0044D142 /* JLPHPickerHeader.h */,
 				0BD1D2CE222FEE1A00E1EA5F /* Controller */,
 				0BD1D2CA222FEC0100E1EA5F /* Config */,
 			);

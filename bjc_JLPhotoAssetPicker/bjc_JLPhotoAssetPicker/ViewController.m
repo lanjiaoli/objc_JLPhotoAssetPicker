@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "JLPhotoPickerHeader.h"
+#import "JLPHPickerHeader.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) JLPHPickerConfig *config;

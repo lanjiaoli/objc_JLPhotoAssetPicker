@@ -7,7 +7,11 @@
 //
 
 #import "JLPhotoToolsSingle.h"
-
+NSString * jl_deleteAlbumName = @"最近删除";
+NSString * jl_gifIdentifier = @".gif";
+@interface JLPhotoToolsSingle()
+@property (nonatomic , strong) NSLock *jl_lock;
+@end
 @implementation JLPhotoToolsSingle
 
 + (JLPhotoToolsSingle *_Nullable)shareSingleton{
@@ -18,9 +22,13 @@
     });
     return single;
 }
+- (void)setConfig:(JLPHPickerConfig *)config{
+    _config = config;
+    [_config.allAlbamlists removeAllObjects];
+    [self jl_getAllPhotoCollection];
+}
 
-
--(NSMutableArray*_Nullable)jl_getAllPhotoAssetsResource{
+-(NSMutableArray*_Nullable)jl_getAllPhotoAssetsResource {
     NSMutableArray *arr = [NSMutableArray array];
     // 所有智能相册
     PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
@@ -72,68 +80,170 @@
     return assets;
 }
 
-#pragma mark 根据PHAsset获取图片信息
 
-- (void)jl_accessToImageAccordingToTheAsset:(PHAsset *_Nullable)asset
+#pragma mark - <  根据PHAsset获取图片信息  >
+- (void)jl_accessToImageAccordingToTheAsset:(PHAsset *)asset
                                        size:(CGSize)size
                                  resizeMode:(PHImageRequestOptionsResizeMode)resizeMode
-                                 completion:(void(^_Nullable)(UIImage * _Nullable image,NSDictionary * _Nullable info))completion{
-    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-    [smartAlbums enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                 completion:(void(^)(UIImage *image,NSDictionary *info))completion
+{
+    CGFloat photoWidth = size.width;
+    CGSize imageSize;
+    CGFloat margin = 4;
+    CGFloat itemWH = (SCREEN_WIDTH - 2 * margin - 4) / 4.0 - margin;
+    // 测试发现，如果scale在plus真机上取到3.0，内存会增大特别多。故这里写死成2.0
+    CGFloat screenScale = 2.0;
+    if (SCREEN_WIDTH > 700) {
+        screenScale = 1.5;
+    }
+    CGSize AssetGridThumbnailSize = CGSizeMake(itemWH * screenScale, itemWH * screenScale);
+    if (photoWidth < SCREEN_WIDTH/* && photoWidth < _photoPreviewMaxWidth*/) {
+        imageSize = AssetGridThumbnailSize;
+    } else {
+        PHAsset *phAsset = (PHAsset *)asset;
+        CGFloat aspectRatio = phAsset.pixelWidth / (CGFloat)phAsset.pixelHeight;
+        CGFloat pixelWidth = photoWidth * screenScale * 1.5;
+        // 超宽图片
+        if (aspectRatio > 1.8) {
+            pixelWidth = pixelWidth * aspectRatio;
+        }
+        // 超高图片
+        if (aspectRatio < 0.2) {
+            pixelWidth = pixelWidth * 0.5;
+        }
+        CGFloat pixelHeight = pixelWidth / aspectRatio;
+        imageSize = CGSizeMake(pixelWidth, pixelHeight);
+    }
+    __block UIImage *image;
+    // 修复获取图片时出现的瞬间内存过高问题
+    // 下面两行代码，来自hsjcom，他的github是：https://github.com/hsjcom 表示感谢
+    PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
+    option.resizeMode = PHImageRequestOptionsResizeModeFast;
+    int32_t imageRequestID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:imageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage *result, NSDictionary *info) {
+        if (result) {
+            image = result;
+        }
+        BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
+        if (downloadFinined && result) {
+            //            result = [self fixOrientation:result];
+            if (completion) completion(result,info);
+        }     // Download image from iCloud / 从iCloud下载图片
+        if ([info objectForKey:PHImageResultIsInCloudKey] && !result) {
+            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+            options.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+                
+            };
+            options.networkAccessAllowed = YES;
+            options.resizeMode = PHImageRequestOptionsResizeModeFast;
+            [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
+                UIImage *resultImage = [UIImage imageWithData:imageData];
+                
+                if (!resultImage) {
+                    resultImage = image;
+                }
+                if (completion) completion(resultImage,info);
+            }];
+        }
+    }];
+    
+}
+/**获取相册里的所有图片的PHAsset对象*/
+- (void)jl_getAllPhotoCollection{
+    
+    ///系统相册
+    [self jl_fetchAssetCollectionsWithType:(PHAssetCollectionTypeSmartAlbum)];
+    
+    ///应用创建的相册
+    [self jl_fetchAssetCollectionsWithType:(PHAssetCollectionTypeAlbum)];
+    
+}
+#pragma mark - 获取某个资源相册
+- (void)jl_fetchAssetCollectionsWithType:(PHAssetCollectionType)type{
+    
+    PHFetchResult *assetCollection = [PHAssetCollection fetchAssetCollectionsWithType:type
+                                            subtype:PHAssetCollectionSubtypeAlbumRegular
+                                                                               options:nil];
+    __weak typeof(self) weakS = self;
+    [assetCollection enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakS.jl_lock lock];
         @autoreleasepool {
             // 是否按创建时间排序
             PHFetchOptions *option = [[PHFetchOptions alloc] init];
             // 照片列表是否按照片日期排序
             option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
             PHAssetCollection *assetCollection = (PHAssetCollection *)obj;
-            PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:option];
             
-            if ([assetCollection.localizedTitle isEqualToString:@"相机胶卷"]) {
-                
-                JLPhotoModel *assetModel = [[JLPhotoModel alloc]init];
-                assetModel.photoAssetName =
-                assetCollection.localizedTitle;
-                assetModel.count = fetchResult.count;
-                assetModel.result = fetchResult;
-                assetModel.lastAsset = fetchResult.lastObject;
-                
-                [fetchResult enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(PHAsset *asset, NSUInteger idx, BOOL * _Nonnull stop) {
-                    @autoreleasepool {
-                        JLPHAlbumModel *photoModel = [[JLPHAlbumModel alloc]init];
-                        photoModel.asset = asset;
-                        photoModel.pixelHeight = asset.pixelHeight;
-                        photoModel.pixelWidth = asset.pixelWidth;
-                        if ([[asset valueForKey:@"isCloudPlaceholder"] boolValue]) {
-                            photoModel.isICloud = YES;
-                        }
-                        if (asset.mediaType == PHAssetMediaTypeImage) {
-                            if ([[[asset valueForKey:@"filename"]lowercaseString] hasSuffix:@"gif"]){
-                                photoModel.type = JLPHAssetMediaTypePhotoGIF;
-                            }else{
-                                photoModel.type = JLPHAssetMediaTypePhoto;
-                            }
-                            
-                        }else{
-                            photoModel.type = JLPHAssetMediaTypeVideo;
-                            [photoModel getNewTimeFromDurationSecond:asset.duration];
-                        }
-                        [assetModel.albumPhotoList addObject:photoModel];
-                        
-                    }
+            PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection
+                                                                       options:option];
+            //过滤空相册
+            if (fetchResult.count > 0) {
+                JLPhotoModel *photoModel = [[JLPhotoModel alloc]init];
+                photoModel.photoAssetName = assetCollection.localizedTitle;
+                photoModel.count = fetchResult.count;
+                photoModel.result = fetchResult;
+                photoModel.lastAsset = fetchResult.lastObject;
+                [weakS jl_enumerateObjectsWithFetchResult:fetchResult photoModel:photoModel];
+              
+                if (type == PHAssetCollectionTypeAlbum) {
+                    [weakS.config.allAlbamlists addObject:photoModel];
+                }else{
                     
-                    completion(assetModel,NULL);
-                }];
-                *stop = YES;
+                    if (![assetCollection.localizedTitle isEqualToString:jl_deleteAlbumName]||
+                        ![assetCollection.localizedTitle isEqualToString:@"Deleted"]) {
+                        //过滤最近删除的相册资源
+                        [weakS.config.allAlbamlists addObject:photoModel];
+                    }
+                }
+                
+            }
+        }
+        [weakS.jl_lock unlock];
+
+        
+        }];
+}
+
+- (void)jl_enumerateObjectsWithFetchResult:(PHFetchResult *)fetchResult
+                   photoModel:(JLPhotoModel * )photoModel{
+    __weak typeof(self) weakS = self;
+    [fetchResult enumerateObjectsWithOptions:NSEnumerationReverse
+                                  usingBlock:^(PHAsset *asset, NSUInteger idx, BOOL * _Nonnull stop)
+    {
+        @autoreleasepool {
+            JLPHAlbumModel *albumModel = [[JLPHAlbumModel alloc]init];
+            albumModel.albumName = photoModel.photoAssetName;
+            albumModel.asset = asset;
+            albumModel.pixelHeight = asset.pixelHeight;
+            albumModel.pixelWidth = asset.pixelWidth;
+            //                        for ( GTWAlbumPhotoModel *selectModel in weakS.selectPhotolist) {
+            //                            if ([photoModel.asset isEqual:selectModel.asset]&&
+            //                                [photoModel.albumName isEqualToString:selectModel.albumName]) {
+            //                                photoModel.selected = selectModel.selected;
+            //                                photoModel.selectedIndex = selectModel.selectedIndex;
+            //
+            //                                [self.newSelectArray addObject:photoModel];
+            //                            }
+            //                        }
+            
+            
+            albumModel.isICloud = [[asset valueForKey:@"isCloudPlaceholder"] boolValue];
+            if (asset.mediaType == PHAssetMediaTypeImage) {
+                if ([[[asset valueForKey:@"filename"]lowercaseString] hasSuffix:jl_gifIdentifier]){
+                    albumModel.type = JLPHAssetMediaTypePhotoGIF;
+                }else{
+                    albumModel.type = JLPHAssetMediaTypePhoto;
+                }
+                [photoModel.albumPhotoList addObject:albumModel];
+            }else{
+                albumModel.type = JLPHAssetMediaTypeVideo;
+                [albumModel getNewTimeFromDurationSecond:asset.duration];
+                if (weakS.config.configType != JLPhotoImageConfigTypeImage) {
+                    [photoModel.albumPhotoList addObject:albumModel];
+                }
             }
             
         }
     }];
-}
-/**
- 获取相册里的所有图片的PHAsset对象
- */
-- (void)jl_getAllPhotoCollection{
-    
 }
 
 /**
@@ -144,6 +254,7 @@
 - (void)jl_firstGetPhotoAblumlistComplete:(void(^_Nullable)
                                            (JLPhotoModel * _Nonnull assetModel,
                                             NSDictionary * _Nonnull info))completion{
+    
     PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     [smartAlbums enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @autoreleasepool {
@@ -261,8 +372,8 @@
  
  */
 - (void)jl_fetchAlbumAuthor:(void(^ _Nonnull)(BOOL status))commplete{
-    PHAuthorizationStatus authorStatus = [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        if (authorStatus == PHAuthorizationStatusAuthorized) {
+   [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if (status == PHAuthorizationStatusAuthorized) {
             if (commplete) {
                 commplete(true);
             }
@@ -276,8 +387,6 @@
 
 /**
  相机权限
- 
- @return
  */
 - (BOOL)jl_cameraAuthorStatus{
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
@@ -332,6 +441,11 @@
 //    });
 }
 
-
+- (NSLock *)jl_lock{
+    if (!_jl_lock) {
+        _jl_lock = [[NSLock alloc]init];
+    }
+    return _jl_lock;
+}
 
 @end

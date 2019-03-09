@@ -1,16 +1,23 @@
 //
-//  JLPhotoPicker.h
+//  JLPHPickerHeader.h
 //  bjc_JLPhotoAssetPicker
 //
-//  Created by L on 2019/3/6.
+//  Created by L on 2019/3/8.
 //  Copyright © 2019 L. All rights reserved.
 //
 
-#define JLPhotoPickerHeader_h
-#import "JLPhotoToolsSingle.h"
+#ifndef JLPHPickerHeader_h
+#define JLPHPickerHeader_h
+
 #import "JLPHPickerConfig.h"
-#import "JLPHPickerNavController.h"
+
 #import "JLPhotoModel.h"
+
+#import "JLPhotoToolsSingle.h"
+
+#import "JLPHPickerConfig.h"
+
+#import "JLPHPickerNavController.h"
 
 
 #define SCREEN_BOUNDS          [[UIScreen mainScreen] bounds]
@@ -21,6 +28,9 @@
 #define SafeAreaTopHeight (SCREEN_HEIGHT == 812.0 ? 88 : 64)//iPhoneX 距离顶部+带导航栏
 #define SafeAreaTabbarHeight (SCREEN_HEIGHT == 812.0 ? 83 : 49) //iPhoneX 距离底部
 #define SafeAreaBottomHeight (SCREEN_HEIGHT == 812.0 ? 34 : 0)
+
 #ifdef DEBUG
 #define DLog(fmt, ...) {NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);}
-#endif /* JLPhotoPicker_h */
+#endif
+
+#endif /* JLPHPickerHeader_h */

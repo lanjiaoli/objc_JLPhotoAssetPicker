@@ -7,9 +7,57 @@
 //
 
 #import "JLPHSelectViewController.h"
-#import "JLPhotoPickerHeader.h"
+#import "JLPHPickerHeader.h"
+
+#define jl_flowlayoutWidth ((SCREEN_WIDTH - 25)/3.0)
 
 static NSString *JLPH_CellIdentifier = @"JLPH_CellIdentifier";
+CGFloat jl_flowlayoutSpacing = 5.0;
+
+@interface JLPHotoSelectCell :UICollectionViewCell
+@property (nonatomic, strong) JLPHAlbumModel *albumModel;
+@property (nonatomic, strong) UIImageView * photoImageView;
+
+@end
+
+@implementation JLPHotoSelectCell
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addSubview:self.photoImageView];
+    }
+    return self;
+}
+- (void)setAlbumModel:(JLPHAlbumModel *)albumModel{
+    _albumModel = albumModel;
+    if (albumModel.image !=nil) {
+        self.photoImageView.image = albumModel.image;
+    }else{
+        __weak typeof(self) weak_self = self;
+        [[JLPhotoToolsSingle shareSingleton]jl_accessToImageAccordingToTheAsset:albumModel.asset size:self.frame.size resizeMode:(PHImageRequestOptionsResizeModeFast) completion:^(UIImage * _Nullable image, NSDictionary * _Nullable info) {
+        weak_self.photoImageView.image = image;
+        weak_self.albumModel.image = image;
+    
+        }];
+    }
+}
+
+
+- (UIImageView *)photoImageView{
+    if (!_photoImageView) {
+        _photoImageView = [[UIImageView alloc]init];
+        _photoImageView.frame = CGRectMake(0, 0, jl_flowlayoutWidth, jl_flowlayoutWidth);
+        _photoImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _photoImageView.clipsToBounds = YES;
+    }
+    return _photoImageView;
+}
+
+
+@end
+
 
 @interface JLPHSelectViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout>
@@ -24,27 +72,28 @@ UICollectionViewDelegateFlowLayout>
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.collectionView];
-    [self.collectionView registerClass:UICollectionViewCell.class forCellWithReuseIdentifier:JLPH_CellIdentifier];
+    [self.collectionView registerClass:JLPHotoSelectCell.class forCellWithReuseIdentifier:JLPH_CellIdentifier];
 }
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource,
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:JLPH_CellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor brownColor];
+    JLPHotoSelectCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:JLPH_CellIdentifier forIndexPath:indexPath];
+    JLPHAlbumModel *albumModel = self.photoModel.albumPhotoList[indexPath.item];
+    cell.albumModel = albumModel;
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return self.photoModel.albumPhotoList.count;
 }
 #pragma mark -
 #pragma mark - lazy loading
 -(UICollectionViewFlowLayout *)flowLayout{
     if (!_flowLayout) {
         _flowLayout = [[UICollectionViewFlowLayout alloc]init];
-        _flowLayout.itemSize  = CGSizeMake((SCREEN_WIDTH - 25)/3.0, (SCREEN_WIDTH - 25)/3.0);
-        _flowLayout.minimumLineSpacing = 5;
-        _flowLayout.minimumInteritemSpacing = 5;
-        _flowLayout.sectionInset = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
+        _flowLayout.itemSize  = CGSizeMake(jl_flowlayoutWidth, jl_flowlayoutWidth);
+        _flowLayout.minimumLineSpacing = jl_flowlayoutSpacing;
+        _flowLayout.minimumInteritemSpacing = jl_flowlayoutSpacing;
+        _flowLayout.sectionInset = UIEdgeInsetsMake(jl_flowlayoutSpacing, jl_flowlayoutSpacing, jl_flowlayoutSpacing, jl_flowlayoutSpacing);
     }
     return _flowLayout;
 }

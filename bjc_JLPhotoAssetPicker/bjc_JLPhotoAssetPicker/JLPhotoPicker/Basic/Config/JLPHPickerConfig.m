@@ -18,7 +18,8 @@
     }
     return self;
 }
-- (instancetype)initWithConfigType:(JLPhImageConfigType)configType selectArray:(NSMutableArray *)selectArray{
+- (instancetype)initWithConfigType:(JLPhImageConfigType)configType
+                       selectArray:(NSMutableArray *)selectArray{
     self = [self init];
     if (self) {
         self.configType = configType;
@@ -26,10 +27,19 @@
     }
     return self;
 }
+#pragma mark  -
+#pragma mark - lozy loading
 - (NSMutableArray *)selectPhotoArray{
     if (!_selectPhotoArray) {
         _selectPhotoArray  = [NSMutableArray arrayWithCapacity:1];
     }
     return _selectPhotoArray;
 }
+- (NSMutableArray<JLPhotoModel *> *)allAlbamlists{
+    if (!_allAlbamlists) {
+        _allAlbamlists  = [NSMutableArray arrayWithCapacity:1];
+    }
+    return _allAlbamlists;
+}
+
 @end
