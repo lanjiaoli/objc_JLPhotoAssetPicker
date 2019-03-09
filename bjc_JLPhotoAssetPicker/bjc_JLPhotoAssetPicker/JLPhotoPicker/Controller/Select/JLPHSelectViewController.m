@@ -9,7 +9,6 @@
 #import "JLPHSelectViewController.h"
 #import "JLPHPickerHeader.h"
 
-#define jl_flowlayoutWidth ((SCREEN_WIDTH - 25)/3.0)
 
 static NSString *JLPH_CellIdentifier = @"JLPH_CellIdentifier";
 CGFloat jl_flowlayoutSpacing = 5.0;
@@ -17,6 +16,9 @@ CGFloat jl_flowlayoutSpacing = 5.0;
 @interface JLPHotoSelectCell :UICollectionViewCell
 @property (nonatomic, strong) JLPHAlbumModel *albumModel;
 @property (nonatomic, strong) UIImageView * photoImageView;
+@property (nonatomic, strong) UIButton * markBtn;
+@property (nonatomic, strong) UILabel * seletLabel;
+@property (nonatomic, strong) UIImageView * markImageLogo;
 
 @end
 
@@ -27,6 +29,8 @@ CGFloat jl_flowlayoutSpacing = 5.0;
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:self.photoImageView];
+        [self addSubview:self.markBtn];
+        [self addSubview:self.markImageLogo];
     }
     return self;
 }
@@ -43,8 +47,31 @@ CGFloat jl_flowlayoutSpacing = 5.0;
         }];
     }
 }
-
-
+- (void)markAction:(id)mark{
+    
+}
+#pragma mark - lazy loading
+- (UIButton *)markBtn{
+    if (!_markBtn) {
+        _markBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        _markBtn.frame = CGRectMake(jl_flowlayoutWidth - 40, 0, 40, 40);
+        [_markBtn addTarget:self action:@selector(markAction:) forControlEvents:(UIControlEventTouchUpInside)];
+        [self.markBtn addSubview:self.seletLabel];
+    }
+    return _markBtn;
+}
+- (UILabel *)seletLabel{
+    if (!_seletLabel) {
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(15, 5, 20, 20)];
+        label.textColor = [UIColor redColor];
+        label.backgroundColor = [UIColor brownColor];
+        label.font = [UIFont systemFontOfSize:12.0];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = @"1";
+        _seletLabel = label;
+    }
+    return _seletLabel;
+}
 - (UIImageView *)photoImageView{
     if (!_photoImageView) {
         _photoImageView = [[UIImageView alloc]init];
@@ -54,7 +81,14 @@ CGFloat jl_flowlayoutSpacing = 5.0;
     }
     return _photoImageView;
 }
-
+- (UIImageView *)markImageLogo{
+    if (!_markImageLogo) {
+        _markImageLogo = [[UIImageView alloc]init];
+        _markImageLogo.frame = CGRectMake(jl_flowlayoutWidth - 30, jl_flowlayoutWidth - 22, 30, 20);
+        _markImageLogo.image = [UIImage imageNamed:@"gif图标"];
+    }
+    return _markImageLogo;
+}
 
 @end
 
@@ -90,7 +124,7 @@ UICollectionViewDelegateFlowLayout>
 -(UICollectionViewFlowLayout *)flowLayout{
     if (!_flowLayout) {
         _flowLayout = [[UICollectionViewFlowLayout alloc]init];
-        _flowLayout.itemSize  = CGSizeMake(jl_flowlayoutWidth, jl_flowlayoutWidth);
+        _flowLayout.itemSize  = jl_flowlayoutItemSize;
         _flowLayout.minimumLineSpacing = jl_flowlayoutSpacing;
         _flowLayout.minimumInteritemSpacing = jl_flowlayoutSpacing;
         _flowLayout.sectionInset = UIEdgeInsetsMake(jl_flowlayoutSpacing, jl_flowlayoutSpacing, jl_flowlayoutSpacing, jl_flowlayoutSpacing);

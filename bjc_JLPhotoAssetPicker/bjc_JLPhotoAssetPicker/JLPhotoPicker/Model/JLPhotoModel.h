@@ -62,8 +62,10 @@ NS_ASSUME_NONNULL_END
 /**  预览当前的图片 */
 @property (assign, nonatomic) BOOL previewSelect;
 
-/**  当前视图  */
+/**  选择列表根据size确定  */
 @property (strong, nonatomic) UIImage * _Nullable image;
+/**大图*/
+@property (strong, nonatomic) UIImage * _Nullable orgImage;
 
 - (void)getNewTimeFromDurationSecond:(NSInteger)duration;
 

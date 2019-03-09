@@ -215,17 +215,11 @@ NSString * jl_gifIdentifier = @".gif";
             albumModel.asset = asset;
             albumModel.pixelHeight = asset.pixelHeight;
             albumModel.pixelWidth = asset.pixelWidth;
-            //                        for ( GTWAlbumPhotoModel *selectModel in weakS.selectPhotolist) {
-            //                            if ([photoModel.asset isEqual:selectModel.asset]&&
-            //                                [photoModel.albumName isEqualToString:selectModel.albumName]) {
-            //                                photoModel.selected = selectModel.selected;
-            //                                photoModel.selectedIndex = selectModel.selectedIndex;
-            //
-            //                                [self.newSelectArray addObject:photoModel];
-            //                            }
-            //                        }
-            
-            
+            [weakS jl_accessToImageAccordingToTheAsset:asset size:jl_flowlayoutItemSize
+                                            resizeMode:(PHImageRequestOptionsResizeModeFast)
+                                            completion:^(UIImage * _Nullable image, NSDictionary * _Nullable info) {
+                                                albumModel.image = image;
+                                            }];
             albumModel.isICloud = [[asset valueForKey:@"isCloudPlaceholder"] boolValue];
             if (asset.mediaType == PHAssetMediaTypeImage) {
                 if ([[[asset valueForKey:@"filename"]lowercaseString] hasSuffix:jl_gifIdentifier]){

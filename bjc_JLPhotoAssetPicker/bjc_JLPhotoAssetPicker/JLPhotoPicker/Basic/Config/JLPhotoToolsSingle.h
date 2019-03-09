@@ -35,9 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSArray *_Nullable)jl_getAllPhotosAssetInAblumCollection:(PHAssetCollection *_Nullable)assetCollection
                                                   ascending:(BOOL)ascending;
-
-
-- (void)jl_getAllPhotoCollection;
 /**
  根据PHAsset获取图片信息
  

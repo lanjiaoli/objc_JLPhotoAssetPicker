@@ -23,6 +23,9 @@
 #define SCREEN_BOUNDS          [[UIScreen mainScreen] bounds]
 #define SCREEN_HEIGHT          SCREEN_BOUNDS.size.height
 #define SCREEN_WIDTH           SCREEN_BOUNDS.size.width
+/**选择视图的尺寸*/
+#define jl_flowlayoutWidth ((SCREEN_WIDTH - 25)/3.0)
+#define jl_flowlayoutItemSize CGSizeMake(jl_flowlayoutWidth, jl_flowlayoutWidth)
 
 #define SafeAreaStatusBarHeight (SCREEN_HEIGHT == 812.0 ? 44 : 20)//iPhoneX 距离顶部状态栏
 #define SafeAreaTopHeight (SCREEN_HEIGHT == 812.0 ? 88 : 64)//iPhoneX 距离顶部+带导航栏
