@@ -39,6 +39,12 @@
     }
     self.videoTime = newTime;
 }
+- (BOOL)markFlag{
+    if (self.type == JLPHAssetMediaTypePhotoGIF) {
+        return false;
+    }
+    return true;
+}
 @end
 
 
@@ -50,3 +56,4 @@
     return false;
 }
 @end
+nonatomic, 

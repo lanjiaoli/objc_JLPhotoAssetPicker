@@ -72,6 +72,7 @@ NS_ASSUME_NONNULL_END
 /** 图片上传的url */
 @property (nonatomic, copy) NSString *_Nonnull pictureUrlPath;
 
+@property (nonatomic, assign) BOOL markFlag;
 @end
 
 

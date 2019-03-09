@@ -36,6 +36,7 @@ CGFloat jl_flowlayoutSpacing = 5.0;
 }
 - (void)setAlbumModel:(JLPHAlbumModel *)albumModel{
     _albumModel = albumModel;
+    self.markImageLogo.hidden = albumModel.markFlag;
     if (albumModel.image !=nil) {
         self.photoImageView.image = albumModel.image;
     }else{
@@ -84,8 +85,9 @@ CGFloat jl_flowlayoutSpacing = 5.0;
 - (UIImageView *)markImageLogo{
     if (!_markImageLogo) {
         _markImageLogo = [[UIImageView alloc]init];
-        _markImageLogo.frame = CGRectMake(jl_flowlayoutWidth - 30, jl_flowlayoutWidth - 22, 30, 20);
+        _markImageLogo.frame = CGRectMake(jl_flowlayoutWidth - 30, jl_flowlayoutWidth - 20, 30, 20);
         _markImageLogo.image = [UIImage imageNamed:@"gif图标"];
+        _markImageLogo.hidden = YES;
     }
     return _markImageLogo;
 }
