@@ -121,6 +121,14 @@ UICollectionViewDelegateFlowLayout>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.photoModel.albumPhotoList.count;
 }
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    JLPHPreviewController *previewVC = [[JLPHPreviewController alloc]init];
+    JLPHAlbumModel *albumModel = self.photoModel.albumPhotoList[indexPath.item];
+    previewVC.albumModel = albumModel;
+    [self.navigationController pushViewController:previewVC animated:YES];
+}
+
 #pragma mark -
 #pragma mark - lazy loading
 -(UICollectionViewFlowLayout *)flowLayout{

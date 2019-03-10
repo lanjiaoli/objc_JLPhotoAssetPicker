@@ -7,6 +7,7 @@
 //
 
 #import "JLPhotoModel.h"
+#import "JLPHPickerHeader.h"
 
 @implementation JLPhotoModel
 - (NSMutableArray *)albumPhotoList{
@@ -45,6 +46,14 @@
     }
     return true;
 }
+
+- (void)calculateCellFrame{
+    //根据宽度获取比例
+    CGFloat scale = SCREEN_WIDTH / _pixelWidth;
+    CGFloat cellHeight = _pixelHeight *scale;
+    CGFloat offt_y = (SCREEN_HEIGHT - cellHeight)/2.0;
+    _previewCellFrame = CGRectMake(0, offt_y < 0 ? 0.0 :offt_y, SCREEN_WIDTH, cellHeight);
+}
 @end
 
 
@@ -56,4 +65,3 @@
     return false;
 }
 @end
-nonatomic, 

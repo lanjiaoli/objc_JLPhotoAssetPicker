@@ -19,6 +19,7 @@
 
 #import "JLPHPickerNavController.h"
 
+#import "JLPHPreviewController.h"
 
 #define SCREEN_BOUNDS          [[UIScreen mainScreen] bounds]
 #define SCREEN_HEIGHT          SCREEN_BOUNDS.size.height

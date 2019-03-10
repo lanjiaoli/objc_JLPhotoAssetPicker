@@ -1,16 +1,16 @@
 //
-//  JLPHPreviewController.h
+//  JLPHPreviewCollectionViewCell.h
 //  bjc_JLPhotoAssetPicker
 //
-//  Created by L on 2019/3/6.
+//  Created by L on 2019/3/10.
 //  Copyright © 2019 L. All rights reserved.
 //
 
-#import "JLPHBasicViewController.h"
+#import <UIKit/UIKit.h>
 @class JLPHAlbumModel;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JLPHPreviewController : JLPHBasicViewController
+@interface JLPHPreviewCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) JLPHAlbumModel *albumModel;
 @end
 

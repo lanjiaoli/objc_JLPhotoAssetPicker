@@ -66,13 +66,15 @@ NS_ASSUME_NONNULL_END
 @property (strong, nonatomic) UIImage * _Nullable image;
 /**大图*/
 @property (strong, nonatomic) UIImage * _Nullable orgImage;
-
-- (void)getNewTimeFromDurationSecond:(NSInteger)duration;
-
 /** 图片上传的url */
 @property (nonatomic, copy) NSString *_Nonnull pictureUrlPath;
 
 @property (nonatomic, assign) BOOL markFlag;
+
+@property (nonatomic, assign) CGRect previewCellFrame;
+
+- (void)getNewTimeFromDurationSecond:(NSInteger)duration;
+- (void)calculateCellFrame;
 @end
 
 

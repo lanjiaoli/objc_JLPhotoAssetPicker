@@ -24,6 +24,8 @@
 		0BD1D2DE222FEF5800E1EA5F /* JLPHListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2DD222FEF5800E1EA5F /* JLPHListViewController.m */; };
 		0BD1D2E2222FEF7500E1EA5F /* JLPHSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2E1222FEF7500E1EA5F /* JLPHSelectViewController.m */; };
 		0BD1D2E6222FF26800E1EA5F /* JLPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D2E5222FF26800E1EA5F /* JLPhotoModel.m */; };
+		0BD901C5223545BF0044D142 /* JLPHCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD901C4223545BF0044D142 /* JLPHCollectionViewFlowLayout.m */; };
+		0BD901C922354A380044D142 /* JLPHPreviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD901C822354A380044D142 /* JLPHPreviewCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,10 @@
 		0BD1D2E4222FF26800E1EA5F /* JLPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPhotoModel.h; sourceTree = "<group>"; };
 		0BD1D2E5222FF26800E1EA5F /* JLPhotoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLPhotoModel.m; sourceTree = "<group>"; };
 		0BD901B92232B89B0044D142 /* JLPHPickerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPHPickerHeader.h; sourceTree = "<group>"; };
+		0BD901C3223545BF0044D142 /* JLPHCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPHCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		0BD901C4223545BF0044D142 /* JLPHCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLPHCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		0BD901C722354A380044D142 /* JLPHPreviewCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLPHPreviewCollectionViewCell.h; sourceTree = "<group>"; };
+		0BD901C822354A380044D142 /* JLPHPreviewCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLPHPreviewCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 		0BD1D27E222FEAEA00E1EA5F /* JLPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				0BD901C622354A200044D142 /* View */,
 				0BD1D2E3222FF21E00E1EA5F /* Model */,
 				0BD1D2D2222FEEC800E1EA5F /* Controller */,
 				0BD1D2C5222FEB5B00E1EA5F /* Basic */,
@@ -216,6 +223,8 @@
 			children = (
 				0BD1D2D8222FEF2D00E1EA5F /* JLPHPreviewController.h */,
 				0BD1D2D9222FEF2D00E1EA5F /* JLPHPreviewController.m */,
+				0BD901C3223545BF0044D142 /* JLPHCollectionViewFlowLayout.h */,
+				0BD901C4223545BF0044D142 /* JLPHCollectionViewFlowLayout.m */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -263,6 +272,15 @@
 				0BD1D2D6222FEF0B00E1EA5F /* JLPHBasicViewController.m */,
 			);
 			path = Basic;
+			sourceTree = "<group>";
+		};
+		0BD901C622354A200044D142 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0BD901C722354A380044D142 /* JLPHPreviewCollectionViewCell.h */,
+				0BD901C822354A380044D142 /* JLPHPreviewCollectionViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,12 +418,14 @@
 				0BD1D24E222FEADF00E1EA5F /* ViewController.m in Sources */,
 				0BD1D2C8222FEBA000E1EA5F /* JLPhotoToolsSingle.m in Sources */,
 				0BD1D24B222FEADF00E1EA5F /* AppDelegate.m in Sources */,
+				0BD901C5223545BF0044D142 /* JLPHCollectionViewFlowLayout.m in Sources */,
 				0BD1D2E6222FF26800E1EA5F /* JLPhotoModel.m in Sources */,
 				0BD1D2D1222FEE6B00E1EA5F /* JLPHPickerNavController.m in Sources */,
 				0BD1D2DA222FEF2D00E1EA5F /* JLPHPreviewController.m in Sources */,
 				0BD1D2D7222FEF0B00E1EA5F /* JLPHBasicViewController.m in Sources */,
 				0BD1D2CD222FEC3100E1EA5F /* JLPHPickerConfig.m in Sources */,
 				0BD1D25C222FEAE100E1EA5F /* main.m in Sources */,
+				0BD901C922354A380044D142 /* JLPHPreviewCollectionViewCell.m in Sources */,
 				0BD1D2E2222FEF7500E1EA5F /* JLPHSelectViewController.m in Sources */,
 				0BD1D254222FEADF00E1EA5F /* bjc_JLPhotoAssetPicker.xcdatamodeld in Sources */,
 			);

@@ -215,6 +215,7 @@ NSString * jl_gifIdentifier = @".gif";
             albumModel.asset = asset;
             albumModel.pixelHeight = asset.pixelHeight;
             albumModel.pixelWidth = asset.pixelWidth;
+            [albumModel calculateCellFrame];
             [weakS jl_accessToImageAccordingToTheAsset:asset size:jl_flowlayoutItemSize
                                             resizeMode:(PHImageRequestOptionsResizeModeFast)
                                             completion:^(UIImage * _Nullable image, NSDictionary * _Nullable info) {
